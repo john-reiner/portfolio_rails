@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :technologies
   resources :blogs
   resources :projects
   resources :users
