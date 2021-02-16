@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_131627) do
   end
 
   create_table "projects", force: :cascade do |t|
+    t.string "name"
     t.string "image"
     t.string "url"
     t.string "github"
