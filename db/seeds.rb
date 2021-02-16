@@ -69,3 +69,32 @@ end
         image: "Technolgy Image #{t+1}"
     )
 end
+
+30.times do
+    ProjectTechnology.create!(
+        project_id: rand(1..10),
+        technology_id: rand(1..20)
+    )
+
+end
+
+30.times do
+    BlogTechnology.create!(
+        blog_id: rand(1..10),
+        technology_id: rand(1..20)
+    )
+end
+
+10.times do
+    EducationTechnology.create!(
+        education_id: rand(1..3),
+        technology_id: rand(1..20)
+    )
+end
+
+12.times do
+    ExperienceTechnology.create!(
+        experience_id: rand(1..4),
+        technology_id: rand(1..20)
+    )
+end

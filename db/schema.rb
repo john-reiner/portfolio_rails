@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_131627) do
+ActiveRecord::Schema.define(version: 2021_02_16_134236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blog_technologies", force: :cascade do |t|
+    t.bigint "blog_id", null: false
+    t.bigint "technology_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blog_id"], name: "index_blog_technologies_on_blog_id"
+    t.index ["technology_id"], name: "index_blog_technologies_on_technology_id"
+  end
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
@@ -24,6 +33,15 @@ ActiveRecord::Schema.define(version: 2021_02_16_131627) do
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
+  create_table "education_technologies", force: :cascade do |t|
+    t.bigint "education_id", null: false
+    t.bigint "technology_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["education_id"], name: "index_education_technologies_on_education_id"
+    t.index ["technology_id"], name: "index_education_technologies_on_technology_id"
+  end
+
   create_table "educations", force: :cascade do |t|
     t.string "end_date"
     t.string "title"
@@ -32,6 +50,15 @@ ActiveRecord::Schema.define(version: 2021_02_16_131627) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_educations_on_user_id"
+  end
+
+  create_table "experience_technologies", force: :cascade do |t|
+    t.bigint "experience_id", null: false
+    t.bigint "technology_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["experience_id"], name: "index_experience_technologies_on_experience_id"
+    t.index ["technology_id"], name: "index_experience_technologies_on_technology_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -52,6 +79,15 @@ ActiveRecord::Schema.define(version: 2021_02_16_131627) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_links_on_user_id"
+  end
+
+  create_table "project_technologies", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "technology_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_project_technologies_on_project_id"
+    t.index ["technology_id"], name: "index_project_technologies_on_technology_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -86,9 +122,17 @@ ActiveRecord::Schema.define(version: 2021_02_16_131627) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "blog_technologies", "blogs"
+  add_foreign_key "blog_technologies", "technologies"
   add_foreign_key "blogs", "users"
+  add_foreign_key "education_technologies", "educations"
+  add_foreign_key "education_technologies", "technologies"
   add_foreign_key "educations", "users"
+  add_foreign_key "experience_technologies", "experiences"
+  add_foreign_key "experience_technologies", "technologies"
   add_foreign_key "experiences", "users"
   add_foreign_key "links", "users"
+  add_foreign_key "project_technologies", "projects"
+  add_foreign_key "project_technologies", "technologies"
   add_foreign_key "projects", "users"
 end
