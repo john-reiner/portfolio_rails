@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   # GET /users/1 or /users/1.json
   def show
     user = User.find(params[:id])
-    render json: user 
+    render json: user.to_json(include: [:links], only: [:email, :first_name, :last_name, :image, :bio, :location])
   end
 
   # GET /users/new
