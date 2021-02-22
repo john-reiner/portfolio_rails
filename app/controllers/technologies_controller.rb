@@ -4,6 +4,7 @@ class TechnologiesController < ApplicationController
   # GET /technologies or /technologies.json
   def index
     @technologies = Technology.all
+    render json: @technologies
   end
 
   # GET /technologies/1 or /technologies/1.json
