@@ -29,6 +29,17 @@
   <strong>Deployed:</strong>
   <%= @project.deployed %>
 </p>
+<br><br>
+<h2>Technologies</h2>
+<% @project.technologies.each do |technology| %>
+
+  <p><%= link_to  technology.name, technology_path(technology) %></p>
+
+
+<% end %>
+
+
+
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', user_path(@current_user.id) %>
