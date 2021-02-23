@@ -22,7 +22,7 @@ class ExperiencesController < ApplicationController
   # POST /experiences or /experiences.json
   def create
     @experience = Experience.new(experience_params)
-
+    @experience.user_id = @current_user
     respond_to do |format|
       if @experience.save
         format.html { redirect_to @experience, notice: "Experience was successfully created." }
