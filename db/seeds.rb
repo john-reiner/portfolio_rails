@@ -64,13 +64,13 @@ Technology.create!(
 #     )
 # end
 
-# 10.times do |b|
-#     Blog.create!(
-#         title: "Blog Title #{b + 1}",
-#         url: "blogurl/#{b + 1}",
-#         user_id: 1
-#     )
-# end
+10.times do |b|
+    Blog.create!(
+        title: "Blog Title #{b + 1}",
+        url: "blogurl/#{b + 1}",
+        user_id: 1
+    )
+end
 
 5.times do |l|
     Link.create!(

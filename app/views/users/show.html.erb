@@ -45,6 +45,16 @@
 
 <br><br>
 
+<h2>Blogs</h2>
+
+<%= link_to  "Add Blog", new_blog_path %>
+
+<% @user.blogs.each do |blog| %>
+  <p><%= link_to  blog.title, blog_path(blog) %></p>
+<% end %>
+
+<br><br>
+
 <h2>Technologies</h2>
 
 <%= link_to  "Add Technology", new_technology_path %>
