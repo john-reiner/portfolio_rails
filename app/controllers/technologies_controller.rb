@@ -22,8 +22,9 @@ class TechnologiesController < ApplicationController
 
   # POST /technologies or /technologies.json
   def create
+    
     @technology = Technology.new(technology_params)
-
+    @technology.user_id = @current_user.id
     respond_to do |format|
       if @technology.save
         format.html { redirect_to @technology, notice: "Technology was successfully created." }
@@ -65,6 +66,6 @@ class TechnologiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def technology_params
-      params.require(:technology).permit(:name, :image)
+      params.require(:technology).permit(:name, :image, :user_id)
     end
 end

@@ -46,10 +46,11 @@ Project.create!(
     user_id: 1
 )
 
-# Technology.create!(
-#     name: "React",
-#     image: "Technolgy Image #{t+1}"
-# )
+Technology.create!(
+    name: "React",
+    image: "reactimage.com",
+    user_id: 1
+)
 
 # 10.times do |p| 
 #     Project.create!(
@@ -101,7 +102,8 @@ Project.create!(
 # 20.times do |t|
 #     Technology.create!(
 #         name: "Technology #{t+1}",
-#         image: "Technolgy Image #{t+1}"
+#         image: "Technolgy Image #{t+1}",
+#         user_id: 1
 #     )
 # end
 

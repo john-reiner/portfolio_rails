@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
+    has_many :technologies
     has_many :projects 
     has_many :blogs
     has_many :links

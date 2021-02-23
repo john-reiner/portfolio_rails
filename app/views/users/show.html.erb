@@ -48,3 +48,8 @@
 <h2>Technologies</h2>
 
 <%= link_to  "Add Technology", new_technology_path %>
+
+<% @user.technologies.each do |technology| %>
+  <p><%= link_to  technology.name, technology_path(technology) %></p>
+<% end %>
+
