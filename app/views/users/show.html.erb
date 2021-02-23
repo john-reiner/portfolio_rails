@@ -53,3 +53,12 @@
   <p><%= link_to  technology.name, technology_path(technology) %></p>
 <% end %>
 
+<br><br>
+
+<h2>Links</h2>
+
+<%= link_to  "Add Link", new_link_path %>
+
+<% @user.links.each do |link| %>
+  <p><%= link_to  link.name, link_path(link) %></p>
+<% end %>

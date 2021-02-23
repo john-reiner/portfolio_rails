@@ -72,13 +72,13 @@ Technology.create!(
 #     )
 # end
 
-# 5.times do |l|
-#     Link.create!(
-#         name: "Link number #{l + 1}",
-#         url: "linkurl/#{l + 1}",
-#         user_id: 1
-#     )
-# end
+5.times do |l|
+    Link.create!(
+        name: "Link number #{l + 1}",
+        url: "linkurl/#{l + 1}",
+        user_id: 1
+    )
+end
 
 # 3.times do |ed|
 #     Education.create!(
