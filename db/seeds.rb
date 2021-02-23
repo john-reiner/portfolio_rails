@@ -89,15 +89,15 @@ end
 #     )
 # end
 
-# 4.times do |ex|
-#     Experience.create!(
-#         start_date: "#{ex+1}/201#{ex}",
-#         end_date: "#{ex+1}/201#{ex+1}",
-#         title: "Experience Title #{ex+1}",
-#         description: "Some Long description about Experience Number #{ex+1}",
-#         user_id: 1
-#     )
-# end
+4.times do |ex|
+    Experience.create!(
+        start_date: "#{ex+1}/201#{ex}",
+        end_date: "#{ex+1}/201#{ex+1}",
+        title: "Experience Title #{ex+1}",
+        description: "Some Long description about Experience Number #{ex+1}",
+        user_id: 1
+    )
+end
 
 # 20.times do |t|
 #     Technology.create!(
