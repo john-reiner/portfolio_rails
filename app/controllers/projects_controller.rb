@@ -9,8 +9,11 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
-    project = Project.find(params[:id])
-    render json: project
+    @project = Project.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @project } 
+    end
   end
 
   # GET /projects/new

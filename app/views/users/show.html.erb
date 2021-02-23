@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Hello <%= @user.first_name %></h1>
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
@@ -30,5 +31,20 @@
   <%= @user.location %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user) %>
+
+<br><br>
+
+<h2>Projects</h2>
+<%= link_to  "Add Project", new_project_path %>
+<% @user.projects.each do |project|%>
+
+  <p><%= link_to  project.name, project_path(project) %></p>
+
+<% end %>
+
+<br><br>
+
+<h2>Technologies</h2>
+
+<%= link_to  "Add Technology", new_technology_path %>
