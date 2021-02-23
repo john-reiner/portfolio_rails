@@ -22,7 +22,7 @@ class EducationsController < ApplicationController
   # POST /educations or /educations.json
   def create
     @education = Education.new(education_params)
-
+    @education.user_id = @current_user.id
     respond_to do |format|
       if @education.save
         format.html { redirect_to @education, notice: "Education was successfully created." }

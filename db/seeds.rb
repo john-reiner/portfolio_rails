@@ -80,14 +80,14 @@ Technology.create!(
     )
 end
 
-# 3.times do |ed|
-#     Education.create!(
-#         end_date: "201#{ed+1}",
-#         title: "Education number #{ed+1}",
-#         description: "Some long description about Edcuation Number #{ed+1}",
-#         user_id: 1
-#     )
-# end
+3.times do |ed|
+    Education.create!(
+        end_date: "201#{ed+1}",
+        title: "Education number #{ed+1}",
+        description: "Some long description about Edcuation Number #{ed+1}",
+        user_id: 1
+    )
+end
 
 4.times do |ex|
     Experience.create!(

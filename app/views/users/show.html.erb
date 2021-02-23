@@ -72,3 +72,13 @@
 <% @user.experiences.each do |experience| %>
   <p><%= link_to  experience.title, experience_path(experience) %></p>
 <% end %>
+
+<br><br>
+
+<h2>Educations</h2>
+
+<%= link_to  "Add Education", new_education_path %>
+
+<% @user.educations.each do |education| %>
+  <p><%= link_to  education.title, education_path(education) %></p>
+<% end %>
