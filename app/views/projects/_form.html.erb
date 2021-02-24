@@ -41,14 +41,13 @@
     <%= form.check_box :deployed %>
   </div>
 
-  <ul>
-    <%= form.fields_for :technologies do |technology_form| %>
-        <li>
-            <%= technology_form.label :name %>
-            <%= technology_form.text_field :name %>
-        </li>
-    <% end %>
-  </ul>
+<%= fields_for(@project_technologies) do |project_technology| %>
+    <div class="field">
+      <%= project_technology.label "Technologies" %>
+      <%= collection_select(:technologies, :id, Technology.all, :id, :name, {}, {:multiple =>  true}) %>
+    </div>
+<% end %>
+
 
   <div class="actions">
     <%= form.submit %>

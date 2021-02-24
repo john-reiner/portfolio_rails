@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
-    3.times { @project.technologies.build }
+    
   end
 
   # GET /projects/1/edit
@@ -30,6 +30,13 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user_id = @current_user.id
+    params[:technologies][:id].each do |technology_id|
+      if !technology_id.empty?
+        @project.project_technologies.build(:technology_id => technology_id)
+      end
+    end
+    # byebug
+
 
     respond_to do |format|
       if @project.save
@@ -44,6 +51,13 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
+
+    params[:technologies][:id].each do |technology_id|
+      if !technology_id.empty?
+        @project.project_technologies.build(:technology_id => technology_id)
+      end
+    end
+    
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project, notice: "Project was successfully updated." }
