@@ -22,7 +22,13 @@ class ExperiencesController < ApplicationController
   # POST /experiences or /experiences.json
   def create
     @experience = Experience.new(experience_params)
-    @experience.user_id = @current_user
+    @experience.user_id = @current_user.id
+
+    params[:technologies][:id].each do |technology_id|
+      if !technology_id.empty?
+        @experience.experience_technologies.build(:technology_id => technology_id)
+      end
+    end
     respond_to do |format|
       if @experience.save
         format.html { redirect_to @experience, notice: "Experience was successfully created." }
@@ -36,6 +42,13 @@ class ExperiencesController < ApplicationController
 
   # PATCH/PUT /experiences/1 or /experiences/1.json
   def update
+
+    params[:technologies][:id].each do |technology_id|
+      if !technology_id.empty?
+        @experience.experience_technologies.update(:technology_id => technology_id)
+      end
+    end
+
     respond_to do |format|
       if @experience.update(experience_params)
         format.html { redirect_to @experience, notice: "Experience was successfully updated." }

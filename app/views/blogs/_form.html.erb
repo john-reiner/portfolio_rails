@@ -21,6 +21,13 @@
     <%= form.text_field :url %>
   </div>
 
+<%= fields_for(@blog_technologies) do |blog_technology| %>
+    <div class="field">
+      <%= blog_technology.label "Technologies" %>
+      <%= collection_select(:technologies, :id, Technology.all, :id, :name, {}, {:multiple =>  true}) %>
+    </div>
+<% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

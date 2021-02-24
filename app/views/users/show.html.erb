@@ -34,6 +34,15 @@
 <%= link_to 'Edit', edit_user_path(@user) %>
 
 <br><br>
+<h2>Technologies</h2>
+
+<%= link_to  "Add Technology", new_technology_path %>
+
+<% @user.technologies.each do |technology| %>
+  <p><%= link_to  technology.name, technology_path(technology) %></p>
+<% end %>
+
+<br><br>
 
 <h2>Projects</h2>
 <%= link_to  "Add Project", new_project_path %>
@@ -55,15 +64,6 @@
 
 <br><br>
 
-<h2>Technologies</h2>
-
-<%= link_to  "Add Technology", new_technology_path %>
-
-<% @user.technologies.each do |technology| %>
-  <p><%= link_to  technology.name, technology_path(technology) %></p>
-<% end %>
-
-<br><br>
 
 <h2>Links</h2>
 

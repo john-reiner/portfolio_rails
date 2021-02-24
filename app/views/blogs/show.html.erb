@@ -10,5 +10,14 @@
   <%= @blog.url %>
 </p>
 
+<h2>Technologies</h2>
+
+<% @blog.technologies.each do |technology| %>
+  <p><%= link_to  technology.name, technology_path(technology) %></p>
+<% end %>
+<br><br>
+
+<hr> <br><br>
+
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', @current_user %>

@@ -31,6 +31,13 @@
     <%= form.text_area :description %>
   </div>
 
+  <%= fields_for(@experience_technologies) do |experience_technology| %>
+    <div class="field">
+      <%= experience_technology.label "Technologies" %>
+      <%= collection_select(:technologies, :id, Technology.all, :id, :name, {}, {:multiple =>  true}) %>
+    </div>
+<% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

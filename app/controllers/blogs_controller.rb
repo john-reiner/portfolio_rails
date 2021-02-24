@@ -23,6 +23,14 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
 
+    @blog.user_id = @current_user.id
+
+    params[:technologies][:id].each do |technology_id|
+      if !technology_id.empty?
+        @blog.blog_technologies.build(:technology_id => technology_id)
+      end
+    end
+
     respond_to do |format|
       if @blog.save
         format.html { redirect_to @blog, notice: "Blog was successfully created." }
@@ -36,6 +44,13 @@ class BlogsController < ApplicationController
 
   # PATCH/PUT /blogs/1 or /blogs/1.json
   def update
+
+    params[:technologies][:id].each do |technology_id|
+      if !technology_id.empty?
+        @blog.blog_technologies.update(:technology_id => technology_id)
+      end
+    end
+
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to @blog, notice: "Blog was successfully updated." }

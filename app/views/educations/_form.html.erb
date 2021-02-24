@@ -26,6 +26,13 @@
     <%= form.text_field :description %>
   </div>
 
+  <%= fields_for(@education_technologies) do |education_technology| %>
+    <div class="field">
+      <%= education_technology.label "Technologies" %>
+      <%= collection_select(:technologies, :id, Technology.all, :id, :name, {}, {:multiple =>  true}) %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

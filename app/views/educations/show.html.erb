@@ -20,5 +20,12 @@
   <%= @education.user_id %>
 </p>
 
+<h2>Technologies</h2>
+
+<% @education.technologies.each do |technology| %>
+  <p><%= link_to  technology.name, technology_path(technology) %></p>
+<% end %>
+<br><br>
+
 <%= link_to 'Edit', edit_education_path(@education) %> |
 <%= link_to 'Back', @current_user %>

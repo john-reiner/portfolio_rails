@@ -23,6 +23,12 @@ class EducationsController < ApplicationController
   def create
     @education = Education.new(education_params)
     @education.user_id = @current_user.id
+
+    params[:technologies][:id].each do |technology_id|
+      if !technology_id.empty?
+        @education.education_technologies.build(:technology_id => technology_id)
+      end
+    end
     respond_to do |format|
       if @education.save
         format.html { redirect_to @education, notice: "Education was successfully created." }
@@ -36,6 +42,12 @@ class EducationsController < ApplicationController
 
   # PATCH/PUT /educations/1 or /educations/1.json
   def update
+
+    params[:technologies][:id].each do |technology_id|
+      if !technology_id.empty?
+        @education.education_technologies.update(:technology_id => technology_id)
+      end
+    end
     respond_to do |format|
       if @education.update(education_params)
         format.html { redirect_to @education, notice: "Education was successfully updated." }

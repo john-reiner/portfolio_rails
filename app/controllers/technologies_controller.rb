@@ -27,7 +27,7 @@ class TechnologiesController < ApplicationController
     @technology.user_id = @current_user.id
     respond_to do |format|
       if @technology.save
-        format.html { redirect_to @technology, notice: "Technology was successfully created." }
+        format.html { redirect_to @current_user, notice: "Technology was successfully created." }
         format.json { render :show, status: :created, location: @technology }
       else
         format.html { render :new, status: :unprocessable_entity }
