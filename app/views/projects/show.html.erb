@@ -21,25 +21,25 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @project.user_id %>
+  <strong>Created By:</strong>
+  <%= @project.user.first_name + " " + @project.user.last_name%>
 </p>
 
-<p>
-  <strong>Deployed:</strong>
-  <%= @project.deployed %>
-</p>
-<br><br>
-<h2>Technologies</h2>
-<% @project.technologies.each do |technology| %>
-
-  <p><%= link_to  technology.name, technology_path(technology) %></p>
-
-
+<% if @project.deployed %>
+  <p>
+    <strong>Deployed</strong>
+  </p>
 <% end %>
+<br><br>
 
+<h2>Technologies</h2>
 
+<% @project.technologies.each do |technology| %>
+  <p><%= link_to  technology.name, technology_path(technology) %></p>
+<% end %>
+<br><br>
 
+<hr> <br><br>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', user_path(@current_user.id) %>

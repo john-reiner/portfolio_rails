@@ -21,7 +21,7 @@ User.create!(
 #     image: "images/projects/wilson.png",
 #     url: "https://john-reiner.github.io/wilson-2.0",
 #     github: "https://github.com/john-reiner/wilson-2.0",
-#     summary: "Wilson is an application designed to help users create and manage their goals. Each Goal has many tasks and when a user marks all the tasks assigned to that goal off, Wilson recognises that the goal is complete!",
+#     summary: "d",
 #     deployed: true,
 #     user_id: 1
 # )
@@ -52,68 +52,68 @@ User.create!(
 #     user_id: 1
 # )
 
-10.times do |p| 
-    Project.create!(
-        name: "Project #{p + 1}",
-        image: "Project Image #{p + 1}",
-        url: "projecturl/#{p + 1}",
-        github: "project-github_#{p + 1}",
-        summary: "some long text about project number #{p + 1}",
-        deployed: false,
-        user_id: 1
-    )
-end
+# 10.times do |p| 
+#     Project.create!(
+#         name: "Project #{p + 1}",
+#         image: "Project Image #{p + 1}",
+#         url: "projecturl/#{p + 1}",
+#         github: "project-github_#{p + 1}",
+#         summary: "some long text about project number #{p + 1}",
+#         deployed: false,
+#         user_id: 1
+#     )
+# end
 
-10.times do |b|
-    Blog.create!(
-        title: "Blog Title #{b + 1}",
-        url: "blogurl/#{b + 1}",
-        user_id: 1
-    )
-end
+# 10.times do |b|
+#     Blog.create!(
+#         title: "Blog Title #{b + 1}",
+#         url: "blogurl/#{b + 1}",
+#         user_id: 1
+#     )
+# end
 
-5.times do |l|
-    Link.create!(
-        name: "Link number #{l + 1}",
-        url: "linkurl/#{l + 1}",
-        user_id: 1
-    )
-end
+# 5.times do |l|
+#     Link.create!(
+#         name: "Link number #{l + 1}",
+#         url: "linkurl/#{l + 1}",
+#         user_id: 1
+#     )
+# end
 
-3.times do |ed|
-    Education.create!(
-        end_date: "201#{ed+1}",
-        title: "Education number #{ed+1}",
-        description: "Some long description about Edcuation Number #{ed+1}",
-        user_id: 1
-    )
-end
+# 3.times do |ed|
+#     Education.create!(
+#         end_date: "201#{ed+1}",
+#         title: "Education number #{ed+1}",
+#         description: "Some long description about Edcuation Number #{ed+1}",
+#         user_id: 1
+#     )
+# end
 
-4.times do |ex|
-    Experience.create!(
-        start_date: "#{ex+1}/201#{ex}",
-        end_date: "#{ex+1}/201#{ex+1}",
-        title: "Experience Title #{ex+1}",
-        description: "Some Long description about Experience Number #{ex+1}",
-        user_id: 1
-    )
-end
+# 4.times do |ex|
+#     Experience.create!(
+#         start_date: "#{ex+1}/201#{ex}",
+#         end_date: "#{ex+1}/201#{ex+1}",
+#         title: "Experience Title #{ex+1}",
+#         description: "Some Long description about Experience Number #{ex+1}",
+#         user_id: 1
+#     )
+# end
 
-5.times do |t|
-    Technology.create!(
-        name: "Technology #{t+1}",
-        image: "Technolgy Image #{t+1}",
-        user_id: 1
-    )
-end
+# 5.times do |t|
+#     Technology.create!(
+#         name: "Technology #{t+1}",
+#         image: "Technolgy Image #{t+1}",
+#         user_id: 1
+#     )
+# end
 
-30.times do
-    ProjectTechnology.create!(
-        project_id: rand(1..10),
-        technology_id: rand(1..5)
-    )
+# 30.times do
+#     ProjectTechnology.create!(
+#         project_id: rand(1..10),
+#         technology_id: rand(1..5)
+#     )
 
-end
+# end
 
 # 30.times do
 #     BlogTechnology.create!(

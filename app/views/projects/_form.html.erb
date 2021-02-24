@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+    <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
   <div class="field">
     <%= form.label :image %>
     <%= form.text_field :image %>
@@ -32,16 +37,22 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :deployed %>
     <%= form.check_box :deployed %>
   </div>
 
+  <ul>
+    <%= form.fields_for :technologies do |technology_form| %>
+        <li>
+            <%= technology_form.label :name %>
+            <%= technology_form.text_field :name %>
+        </li>
+    <% end %>
+  </ul>
+
   <div class="actions">
     <%= form.submit %>
   </div>
+
+
 <% end %>
