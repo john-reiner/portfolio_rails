@@ -1,6 +1,6 @@
 class TechnologiesController < ApplicationController
   before_action :set_technology, only: %i[ show edit update destroy ]
-
+  skip_before_action :logged_in, only: [:show]
   # GET /technologies or /technologies.json
   def index
     @technologies = Technology.all
