@@ -1,25 +1,25 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
-
+  skip_before_action :logged_in, only: [:new, :create, :show]
   # GET /projects or /projects.json
   def index
-    @projects = Project.all
-    render json: @projects
+    # @projects = Project.all
+    # render json: @projects
   end
 
   # GET /projects/1 or /projects/1.json
   def show
-    @project = Project.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.json { render json: @project } 
-    end
+    # @project = Project.find(params[:id])
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @project } 
+    # end
   end
 
   # GET /projects/new
   def new
     @project = Project.new
-    
+
   end
 
   # GET /projects/1/edit
