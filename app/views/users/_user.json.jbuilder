@@ -4,6 +4,7 @@ json.links(user.links) do |link|
     json.id link.id
     json.name link.name 
     json.address link.address
+    json.image link.image
 end
 
 json.projects(user.projects) do |project|
