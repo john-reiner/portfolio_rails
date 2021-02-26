@@ -1,4 +1,4 @@
-json.extract! project, :id, :image, :address, :github, :summary, :user_id, :deployed, :created_at, :updated_at
+json.extract! project, :id, :name, :image, :address, :github, :summary, :user_id, :deployed, :created_at, :updated_at
 json.technologies(project.technologies) do |technology|
     json.id technology.id
     json.name technology.name
