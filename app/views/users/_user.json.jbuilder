@@ -15,6 +15,11 @@ json.projects(user.projects) do |project|
     json.github project.github
     json.summary project.summary
     json.deployed project.deployed
+    json.technologies(project.technologies) do |technology|
+        json.id technology.id
+        json.name technology.name
+        json.image technology.image
+    end
 end
 
 json.technologies(user.technologies) do |technology|
