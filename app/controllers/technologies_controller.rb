@@ -21,10 +21,12 @@ class TechnologiesController < ApplicationController
   end
 
   # POST /technologies or /technologies.json
+
   def create
-    
+
     @technology = Technology.new(technology_params)
     @technology.user_id = @current_user.id
+
     respond_to do |format|
       if @technology.save
         format.html { redirect_to @current_user, notice: "Technology was successfully created." }

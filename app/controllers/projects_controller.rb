@@ -45,9 +45,16 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
 
-    params[:technologies][:id].each do |technology_id|
-      if !technology_id.empty?
-        @project.project_technologies.build(:technology_id => technology_id)
+    if params[:technologies][:id].length != 1 
+      # destroy the old record
+      @project.project_technologies.each do |tech|
+        tech.destroy
+      end
+      #build the new ones
+      params[:technologies][:id].each do |technology_id|
+        if !technology_id.empty?
+          @project.project_technologies.build(:technology_id => technology_id)
+        end
       end
     end
     
