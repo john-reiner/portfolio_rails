@@ -1,94 +1,97 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Hello <%= @user.first_name %></h1>
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+  <h1>Hello <%= @user.first_name %></h1>
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+  <p>
+    <strong>First name:</strong>
+    <%= @user.first_name %>
+  </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @user.image %>
-</p>
+  <p>
+    <strong>Last name:</strong>
+    <%= @user.last_name %>
+  </p>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
+  <p>
+    <strong>Image:</strong>
+    <%= @user.image %>
+  </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @user.location %>
-</p>
+  <p>
+    <strong>Bio:</strong>
+    <%= @user.bio %>
+  </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+  <p>
+    <strong>Location:</strong>
+    <%= @user.location %>
+  </p>
 
-<br><br>
-<h2>Technologies</h2>
+  <%= link_to 'Edit', edit_user_path(@user) %>
 
-<%= link_to  "Add Technology", new_technology_path %>
+  <br><br>
+  <h2>Technologies</h2>
 
-<% @user.technologies.each do |technology| %>
-  <p><%= link_to  technology.name, technology_path(technology) %></p>
-<% end %>
+  <%= link_to  "Add Technology", new_technology_path %>
 
-<br><br>
+  <% @user.technologies.each do |technology| %>
+    <p><%= link_to  technology.name, technology_path(technology) %></p>
+  <% end %>
 
-<h2>Projects</h2>
-<%= link_to  "Add Project", new_project_path %>
-<% @user.projects.each do |project|%>
+  <br><br>
 
-  <p><%= link_to  project.name, project_path(project) %></p>
+  <h2>Projects</h2>
+  <%= link_to  "Add Project", new_project_path %>
+  <% @user.projects.each do |project|%>
 
-<% end %>
+    <p><%= link_to  project.name, project_path(project) %></p>
 
-<br><br>
+  <% end %>
 
-<h2>Blogs</h2>
+  <br><br>
 
-<%= link_to  "Add Blog", new_blog_path %>
+  <h2>Blogs</h2>
 
-<% @user.blogs.each do |blog| %>
-  <p><%= link_to  blog.title, blog_path(blog) %></p>
-<% end %>
+  <%= link_to  "Add Blog", new_blog_path %>
 
-<br><br>
+  <% @user.blogs.each do |blog| %>
+    <p><%= link_to  blog.title, blog_path(blog) %></p>
+  <% end %>
+
+  <br><br>
 
 
-<h2>Links</h2>
+  <h2>Links</h2>
 
-<%= link_to  "Add Link", new_link_path %>
+  <%= link_to  "Add Link", new_link_path %>
 
-<% @user.links.each do |link| %>
-  <p><%= link_to  link.name, link_path(link) %></p>
-<% end %>
+  <% @user.links.each do |link| %>
+    <p><%= link_to  link.name, link_path(link) %></p>
+  <% end %>
 
-<br><br>
+  <br><br>
 
-<h2>Experiences</h2>
+  <h2>Experiences</h2>
 
-<%= link_to  "Add Experience", new_experience_path %>
+  <%= link_to  "Add Experience", new_experience_path %>
 
-<% @user.experiences.each do |experience| %>
-  <p><%= link_to  experience.title, experience_path(experience) %></p>
-<% end %>
+  <% @user.experiences.each do |experience| %>
+    <p><%= link_to  experience.title, experience_path(experience) %></p>
+  <% end %>
 
-<br><br>
+  <br><br>
 
-<h2>Educations</h2>
+  <h2>Educations</h2>
 
-<%= link_to  "Add Education", new_education_path %>
+  <%= link_to  "Add Education", new_education_path %>
 
-<% @user.educations.each do |education| %>
-  <p><%= link_to  education.title, education_path(education) %></p>
-<% end %>
+  <% @user.educations.each do |education| %>
+    <p><%= link_to  education.title, education_path(education) %></p>
+  <% end %>
+</div>
