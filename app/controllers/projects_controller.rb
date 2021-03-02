@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
   skip_before_action :logged_in, only: [:show]
   # GET /projects or /projects.json
   def index
+    @projects = @current_user.projects
   end
 
   # GET /projects/1 or /projects/1.json

@@ -11,4 +11,24 @@
  * It is generally better to create a new file per style scope.
  *
  */
-@import "bootstrap"
+@import "bootstrap";
+
+$dark: #333;
+$white: whitesmoke;
+$sectionPadding: 1rem;
+$sectionBorderRadius: 4px;
+
+#my-info{
+    background-color: $dark;
+    color: $white;
+    padding: $sectionPadding;
+    border-radius: $sectionBorderRadius;
+}
+
+#user-image {
+    width: 200px;
+}
+
+#technologies{ 
+    border-left: solid $white 3px;
+}

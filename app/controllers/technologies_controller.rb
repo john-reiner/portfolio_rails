@@ -3,8 +3,8 @@ class TechnologiesController < ApplicationController
   skip_before_action :logged_in, only: [:show]
   # GET /technologies or /technologies.json
   def index
-    @technologies = Technology.all
-    render json: @technologies
+    @technologies = @current_user.technologies
+    # render json: @technologies
   end
 
   # GET /technologies/1 or /technologies/1.json
