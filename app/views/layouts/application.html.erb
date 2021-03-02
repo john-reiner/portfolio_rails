@@ -29,7 +29,7 @@
             <% if @current_user %>
               <%= button_to "Logout", destroy_session_path, method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-outline-success" %>
             <% else %>
-              <%= button_to "Register", new_user_path, method: :get, class: "btn btn-outline-success" %>
+              <%= button_to "Register", new_user_path, method: :get, class: "btn btn-outline-secondary" %>
             <% end %>
         </div>
       </div>

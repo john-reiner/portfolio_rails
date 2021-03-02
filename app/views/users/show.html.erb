@@ -4,91 +4,92 @@
 
 
   <h1>My Dashboard</h1>
+  <hr>
+
   <div class="row" id="my-info">
-    <div class="col-8" >
+    <div class="col-6" >
       <h2><%= @user.first_name + " " + @user.last_name %> </h2>
         <%= image_tag(@user.image, class: "img-thumbnail", id: "user-image", alt: "user image")%>
       <p>
         <strong>Email:</strong>
         <%= @user.email %>
       </p>
-
       <p>
         <strong>Bio:</strong>
         <%= @user.bio %>
       </p>
-
       <p>
         <strong>Location:</strong>
         <%= @user.location %>
       </p>
-      <%= link_to 'Edit', edit_user_path(@user) %>    
+      <%= button_to "Edit", edit_user_path(@user), method: :get, class: "btn btn-outline-primary" %>
     </div>  
-    <div class="col-4" id="technologies">
-      <h2>Technologies</h2>
-
-      <%= link_to  "Add Technology", new_technology_path %>
-
-      <% @user.technologies.each do |technology| %>
-        <p><%= link_to  technology.name, technology_path(technology) %></p>
-      <% end %>    
+    <div class="col-3" id="links">
+      <h2> <%= link_to  "Links", links_path %></h2>
+      <div class="d-grid gap-2">
+        <%= button_to "Add", new_link_path, method: :get, class: "btn btn-outline-primary" %>
+      </div>
+      <ul>
+        <% @user.links.each do |link| %>
+          <li><%= link_to  link.name, link_path(link) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-3" id="technologies">
+      <h2> <%= link_to  "Technologies", technologies_path %></h2>
+      <%= button_to "Add", new_technology_path, method: :get, class: "btn btn-outline-primary" %>
+      <ul>
+        <% @user.technologies.each do |technology| %>
+          <li><%= link_to  technology.name, technology_path(technology) %></li>
+        <% end %>      
+      </ul>
     </div>
   </div>
+  <br>
+  <h2>Portfolio Info</h2>
+  <hr>
+  <div class="row" id="info">
+    <div class="col" id="projects">
+    <h2> <%= link_to  "Projects", projects_path %></h2>
+      <%= button_to "Add", new_project_path, method: :get, class: "btn btn-outline-primary" %>
+      <ul>
+        <% @user.projects.each do |project|%>
+          <li><%= link_to  project.name, project_path(project) %></li>
+        <% end %>
+      </ul>
+    </div>
 
-    <br><br>
+    <div class="col">
+      <h2> <%= link_to  "Blogs", blogs_path %></h2>
+      <%= button_to "Add", new_blog_path, method: :get, class: "btn btn-outline-primary" %>
+      <ul>
+        <% @user.blogs.each do |blog| %>
+          <li><%= link_to  blog.title, blog_path(blog) %></li>
+        <% end %>
+      </ul>
+    </div>
 
+    <div class="col">
+      <h2> <%= link_to  "Experiences", experiences_path %></h2>
+      <%= button_to "Add", new_experience_path, method: :get, class: "btn btn-outline-primary" %>
+      <ul>
+        <% @user.experiences.each do |experience| %>
+          <li><%= link_to  experience.title, experience_path(experience) %></li>
+        <% end %>
+      </ul>
+    </div>
 
-    <br><br>
-
-    <h2>Projects</h2>
-    <%= link_to  "Add Project", new_project_path %>
-    <% @user.projects.each do |project|%>
-
-      <p><%= link_to  project.name, project_path(project) %></p>
-
-    <% end %>
-
-    <br><br>
-
-    <h2>Blogs</h2>
-
-    <%= link_to  "Add Blog", new_blog_path %>
-
-    <% @user.blogs.each do |blog| %>
-      <p><%= link_to  blog.title, blog_path(blog) %></p>
-    <% end %>
-
-    <br><br>
-
-
-    <h2>Links</h2>
-
-    <%= link_to  "Add Link", new_link_path %>
-
-    <% @user.links.each do |link| %>
-      <p><%= link_to  link.name, link_path(link) %></p>
-    <% end %>
-
-    <br><br>
-
-    <h2>Experiences</h2>
-
-    <%= link_to  "Add Experience", new_experience_path %>
-
-    <% @user.experiences.each do |experience| %>
-      <p><%= link_to  experience.title, experience_path(experience) %></p>
-    <% end %>
-
-    <br><br>
-
-    <h2>Educations</h2>
-
-    <%= link_to  "Add Education", new_education_path %>
-
-    <% @user.educations.each do |education| %>
-      <p><%= link_to  education.title, education_path(education) %></p>
-    <% end %>
-
-  
+    <div class='col'>
+      <h2> <%= link_to  "Edcuations", educations_path %></h2>
+      <%= button_to "Add", new_education_path, method: :get, class: "btn btn-outline-primary" %>
+      <ul>
+        <% @user.educations.each do |education| %>
+          <li><%= link_to  education.title, education_path(education) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <br>
 </div>
 

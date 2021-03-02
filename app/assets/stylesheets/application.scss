@@ -14,21 +14,72 @@
 @import "bootstrap";
 
 $dark: #333;
-$white: whitesmoke;
+$white: seashell;
 $sectionPadding: 1rem;
 $sectionBorderRadius: 4px;
+
+body {
+    background-color: $white;
+}
+
+.link-image {
+    width: 50px;
+}
 
 #my-info{
     background-color: $dark;
     color: $white;
     padding: $sectionPadding;
     border-radius: $sectionBorderRadius;
+    a h2 {
+        color: $white;
+    }
+}
+
+
+
+#info {
+    background-color: $dark;
+    color: $white;
+    padding: $sectionPadding;
+    border-radius: $sectionBorderRadius;
+    .col {
+        border-left: solid $white 3px;
+        h2 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding-top: 1rem;
+        }
+    }
+    #projects{
+        border: none;
+    }
 }
 
 #user-image {
     width: 200px;
 }
 
+#links {
+    border-left: solid $white 3px;
+    h2 {
+        text-align: center;
+    }
+    ul {
+        list-style-type: none;
+        padding-top: 1rem;
+    }
+}
+
 #technologies{ 
     border-left: solid $white 3px;
+    h2 {
+        text-align: center;
+    }
+    ul {
+        list-style-type: none;
+        padding-top: 1rem;
+    }
 }
