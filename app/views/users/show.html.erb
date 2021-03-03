@@ -8,7 +8,10 @@
 
   <div class="row" id="my-info">
     <div class="col-6" >
-      <h2><%= @user.first_name + " " + @user.last_name %> </h2>
+      <div class="heading">
+        <h2><%= @user.first_name + " " + @user.last_name %></h2>
+        <%= button_to "Edit", edit_user_path(@user), method: :get, class: "btn btn-outline-primary" %>
+      </div>
         <%= image_tag(@user.image, class: "img-thumbnail", id: "user-image", alt: "user image")%>
       <p>
         <strong>Email:</strong>
@@ -22,13 +25,12 @@
         <strong>Location:</strong>
         <%= @user.location %>
       </p>
-      <%= button_to "Edit", edit_user_path(@user), method: :get, class: "btn btn-outline-primary" %>
     </div>  
 
 
     <div class="col-3" id="links">
-      <div id="links-heading">
-        <h2><%= link_to  "Links", links_path %></h2>
+      <div class="heading">
+        <h2>Links</h2>
         <%= button_to "Add", new_link_path, method: :get, class: "btn btn-outline-primary" %>
       </div>
       <table class="table align-middle table-hover table-sm">
@@ -53,8 +55,8 @@
 
 
     <div class="col-3" id="technologies">
-      <div id="technologies-heading">
-        <h2> <%= link_to  "Technologies", technologies_path %></h2>
+      <div class="heading">
+        <h2>Technologies</h2>
         <%= button_to "Add", new_technology_path, method: :get, class: "btn btn-outline-primary" %>
       </div>
       <table class="table align-middle table-hover table-sm">
@@ -83,41 +85,50 @@
   <hr>
   <div class="row" id="info">
     <div class="col" id="projects">
-    <h2> <%= link_to  "Projects", projects_path %></h2>
-      <%= button_to "Add", new_project_path, method: :get, class: "btn btn-outline-primary" %>
-      <ul>
+    <div class="heading">
+    <h2><%= link_to  "Projects", projects_path %></h2>
+    <%= button_to "Add", new_project_path, method: :get, class: "btn btn-outline-primary" %>
+    
+    </div>
+      <ul class="list-group">
         <% @user.projects.each do |project|%>
-          <li><%= link_to  project.name, project_path(project) %></li>
+          <li class="list-group-item list-group-item-dark"><%= link_to  project.name, project_path(project) %></li>
         <% end %>
       </ul>
     </div>
 
     <div class="col">
-      <h2> <%= link_to  "Blogs", blogs_path %></h2>
+    <div class="heading">
+      <h2><%= link_to  "Blogs", blogs_path %></h2>
       <%= button_to "Add", new_blog_path, method: :get, class: "btn btn-outline-primary" %>
-      <ul>
+    </div>
+      <ul class="list-group">
         <% @user.blogs.each do |blog| %>
-          <li><%= link_to  blog.title, blog_path(blog) %></li>
+          <li class="list-group-item list-group-item-dark"><%= link_to  blog.title, blog_path(blog) %></li>
         <% end %>
       </ul>
     </div>
 
     <div class="col">
-      <h2> <%= link_to  "Experiences", experiences_path %></h2>
-      <%= button_to "Add", new_experience_path, method: :get, class: "btn btn-outline-primary" %>
-      <ul>
+      <div class="heading">
+        <h2> <%= link_to  "Experiences", experiences_path %></h2>
+        <%= button_to "Add", new_experience_path, method: :get, class: "btn btn-outline-primary" %>
+      </div>
+      <ul class="list-group">
         <% @user.experiences.each do |experience| %>
-          <li><%= link_to  experience.title, experience_path(experience) %></li>
+          <li class="list-group-item list-group-item-dark"><%= link_to  experience.title, experience_path(experience) %></li>
         <% end %>
       </ul>
     </div>
 
     <div class='col'>
-      <h2> <%= link_to  "Edcuations", educations_path %></h2>
-      <%= button_to "Add", new_education_path, method: :get, class: "btn btn-outline-primary" %>
-      <ul>
+      <div class="heading">
+        <h2> <%= link_to  "Edcuations", educations_path %></h2>
+        <%= button_to "Add", new_education_path, method: :get, class: "btn btn-outline-primary" %>
+      </div>
+      <ul class="list-group">
         <% @user.educations.each do |education| %>
-          <li><%= link_to  education.title, education_path(education) %></li>
+          <li class="list-group-item list-group-item-dark"><%= link_to  education.title, education_path(education) %></li>
         <% end %>
       </ul>
     </div>

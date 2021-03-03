@@ -21,6 +21,12 @@ $sectionBorderRadius: 4px;
 body {
     background-color: $white;
 }
+
+.heading {
+    display: flex; 
+    justify-content: space-between;
+}
+
 #links-headding {
     display: flex;
     justify-content: space-around;
@@ -68,7 +74,7 @@ body {
         }
         ul {
             list-style-type: none;
-            padding-top: 1rem;
+            // padding-top: 1rem;
         }
     }
     #projects{
@@ -82,10 +88,6 @@ body {
 
 #links {
     border-left: solid $white 3px;
-    #links-heading{
-        display: flex;
-        justify-content: space-around;
-    }
     ul {
         list-style-type: none;
         padding-top: 1rem;
@@ -97,10 +99,6 @@ body {
 
 #technologies{ 
     border-left: solid $white 3px;
-    #technologies-heading{
-        display: flex;
-        justify-content: space-around;
-    }
     ul {
         list-style-type: none;
         padding-top: 1rem;
