@@ -21,6 +21,24 @@ $sectionBorderRadius: 4px;
 body {
     background-color: $white;
 }
+#links-headding {
+    display: flex;
+    justify-content: space-around;
+    h2 {
+        float: left;
+    }
+    #new-link-button {
+        float: right;
+    }
+}
+
+.section {
+    background-color: $dark;
+    color: $white;
+    padding: $sectionPadding;
+    border-radius: $sectionBorderRadius;
+    $table-color: $white;
+}
 
 .link-image {
     width: 50px;
@@ -64,22 +82,30 @@ body {
 
 #links {
     border-left: solid $white 3px;
-    h2 {
-        text-align: center;
+    #links-heading{
+        display: flex;
+        justify-content: space-around;
     }
     ul {
         list-style-type: none;
         padding-top: 1rem;
+    }
+    table {
+        color: $white;
     }
 }
 
 #technologies{ 
     border-left: solid $white 3px;
-    h2 {
-        text-align: center;
+    #technologies-heading{
+        display: flex;
+        justify-content: space-around;
     }
     ul {
         list-style-type: none;
         padding-top: 1rem;
+    }
+    table {
+        color: $white;
     }
 }

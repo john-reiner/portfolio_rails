@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-      <p id="notice"><%= notice %></p>
-
+      <div id="links-headding">
       <h1>Links</h1>
+      <p id="notice"><%= notice %></p>
+      <%= button_to "Add", new_link_path, method: :get, class: "btn btn-outline-primary", id: 'new-link-button' %>
+      </div>
     <div class="col">
-      <div class="section">
-      <%= link_to 'New Link', new_link_path %>
 
       <table class="table align-middle table-hover">
         <thead>
@@ -13,6 +13,7 @@
             <th scope="col">Name</th>
             <th scope="col">Address</th>
             <th scope="col">Image</th>
+            <th scope="col">Edit/Remove</th>
 
           </tr>
         </thead>
@@ -20,11 +21,10 @@
         <tbody>
           <% @links.each do |link| %>
             <tr>
-              <td><%= link_to link.name, link %></td>
+              <td><%= link.name %></td>
               <td><%= link_to  link.address, link.address, target: :_blank %></td>
-              
               <td><%= image_tag(link.image, class: "link-image", alt: "link image")%></td>
-              <td></td>
+              <td><%= link_to 'Edit', edit_link_path(link) %> | <%= link_to 'Remove', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
@@ -35,6 +35,5 @@
       <br>
 
     </div>
-  </div>
 </div>
 
