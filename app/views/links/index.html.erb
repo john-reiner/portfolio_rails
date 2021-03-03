@@ -1,6 +1,12 @@
+
+
+
+
+
+
 <div class="container">
   <div class="row">
-      <div id="links-headding">
+    <div id="links-headding">
       <h1>Links</h1>
       <p id="notice"><%= notice %></p>
       <%= button_to "Add", new_link_path, method: :get, class: "btn btn-outline-primary", id: 'new-link-button' %>
@@ -20,7 +26,7 @@
 
         <tbody>
           <% @links.each do |link| %>
-            <tr>
+            <tr scope="row">
               <td><%= link.name %></td>
               <td><%= link_to  link.address, link.address, target: :_blank %></td>
               <td><%= image_tag(link.image, class: "link-image", alt: "link image")%></td>
