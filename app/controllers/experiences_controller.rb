@@ -62,6 +62,7 @@ class ExperiencesController < ApplicationController
 
   # DELETE /experiences/1 or /experiences/1.json
   def destroy
+    @experience.technologies.destroy_all
     @experience.destroy
     respond_to do |format|
       format.html { redirect_to experiences_url, notice: "Experience was successfully destroyed." }

@@ -61,6 +61,7 @@ class EducationsController < ApplicationController
 
   # DELETE /educations/1 or /educations/1.json
   def destroy
+    @education.technologies.destroy_all
     @education.destroy
     respond_to do |format|
       format.html { redirect_to educations_url, notice: "Education was successfully destroyed." }
