@@ -1,6 +1,11 @@
-<h1>Editing Technology</h1>
-
-<%= render 'form', technology: @technology %>
-
-<%= link_to 'Back', @technology %> 
-
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="new-form">
+                <h1>Edit Technology</h1>
+                <%= render 'form', technology: @technology %>
+                <%= link_to 'Back', user_path(@current_user.id) %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,12 @@
-<h1>Editing Link</h1>
-
-<%= render 'form', link: @link %>
-
-<%= link_to 'Back', @link %> 
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="new-form">
+                <h1>Edit Link</h1>
+                <%= render 'form', link: @link %>
+                <%= link_to 'Back', user_path(@current_user.id) %>
+            </div>
+        </div>
+    </div>
+</div>
 

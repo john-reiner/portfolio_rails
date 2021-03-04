@@ -53,9 +53,13 @@ class TechnologiesController < ApplicationController
 
   # DELETE /technologies/1 or /technologies/1.json
   def destroy
+    @technology.projects.destroy_all
+    @technology.blogs.destroy_all
+    @technology.educations.destroy_all
+    @technology.experiences.destroy_all
     @technology.destroy
     respond_to do |format|
-      format.html { redirect_to technologies_url, notice: "Technology was successfully destroyed." }
+      format.html { redirect_to @current_user, notice: "Technology was successfully destroyed." }
       format.json { head :no_content }
     end
   end
