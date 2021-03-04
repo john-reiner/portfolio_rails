@@ -11,45 +11,45 @@
     </div>
   <% end %>
 
-    <div class="field">
+    <div class="form-group mb-3">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :image %>
     <%= form.text_field :image %>
   </div>
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :address %>
     <%= form.text_field :address %>
   </div>
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :github %>
     <%= form.text_field :github %>
   </div>
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :summary %>
     <%= form.text_area :summary %>
   </div>
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :deployed %>
     <%= form.check_box :deployed %>
   </div>
 
 <%= fields_for(@project_technologies) do |project_technology| %>
-    <div class="field">
+    <div class="form-group mb-3">
       <%= project_technology.label "Technologies" %>
       <%= collection_select(:technologies, :id, Technology.all, :id, :name, {}, {:multiple =>  true}) %>
     </div>
 <% end %>
 
 
-  <div class="actions">
+  <div class="form-group mb-3">
     <%= form.submit %>
   </div>
 
