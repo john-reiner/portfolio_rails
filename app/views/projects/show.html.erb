@@ -11,11 +11,12 @@
         </div>
         <div class="col">
           <% if @project.deployed %>
-            <h2><%= link_to  "Deployed", @project.address, target: :_blank %></h2>
+            <h4><%= link_to  "Deployed", @project.address, target: :_blank %></h4>
           <% end %>
-            <h2><%= link_to  "GitHub", @project.github, target: :_blank %></h2>
+            <h4><%= link_to  "GitHub", @project.github, target: :_blank %></h4>
+            <h4>Technologies: </h4>
             <ul>
-              <% @project.technologies.each |technology| %>
+              <% @project.technologies.each do |technology| %>
                 <li><%= technology.name %></li>
               <% end %>
             </ul>

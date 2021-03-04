@@ -65,7 +65,7 @@ class ExperiencesController < ApplicationController
     @experience.technologies.destroy_all
     @experience.destroy
     respond_to do |format|
-      format.html { redirect_to experiences_url, notice: "Experience was successfully destroyed." }
+      format.html { redirect_to @current_user, notice: "Experience was successfully destroyed." }
       format.json { head :no_content }
     end
   end

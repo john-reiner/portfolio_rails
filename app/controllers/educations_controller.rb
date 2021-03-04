@@ -64,7 +64,7 @@ class EducationsController < ApplicationController
     @education.technologies.destroy_all
     @education.destroy
     respond_to do |format|
-      format.html { redirect_to educations_url, notice: "Education was successfully destroyed." }
+      format.html { redirect_to @current_user, notice: "Education was successfully destroyed." }
       format.json { head :no_content }
     end
   end
