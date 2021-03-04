@@ -64,6 +64,7 @@ class BlogsController < ApplicationController
 
   # DELETE /blogs/1 or /blogs/1.json
   def destroy
+    @blog.technologies.destroy_all
     @blog.destroy
     respond_to do |format|
       format.html { redirect_to blogs_url, notice: "Blog was successfully destroyed." }
@@ -79,6 +80,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :address)
+      params.require(:blog).permit(:title, :address, :image, :summary)
     end
 end

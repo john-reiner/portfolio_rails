@@ -21,8 +21,19 @@
           <% @blogs.each do |blog| %>
             <tr>
               <td><%= link_to  blog.title, blog_path(blog.id) %></td>
-              <td><%= image_tag(blog.image, class: "project-image", alt: "blog image")%></td>
+              
+              <% if blog.image %>
+                <td><%= image_tag(blog.image, class: "project-image", alt: "blog image")%></td>
+              <% else %>
+                <td><p>no image</p></td>
+              <% end %>
+              
               <td><%= blog.summary %></td>
+              <td><ol><% blog.technologies.each do |technology| %>
+                    <li><%= technology.name %></li>
+                  <% end %></ol>
+                  
+              </td>
             </tr>
           <% end %>
         </tbody>
