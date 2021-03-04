@@ -1,33 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="heading">
+      <h1>Educations</h1>
+      <%= button_to "Add", new_education_path, method: :get, class: "btn btn-outline-primary" %>
+    </div>
+    <div class="col">
 
-<h1>Educations</h1>
+      <table class="table align-middle table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Description</th>
+            <th scope="col">Technologies</th>
+          </tr>
+        </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>End date</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @educations.each do |education| %>
-      <tr>
-        <td><%= education.end_date %></td>
-        <td><%= education.title %></td>
-        <td><%= education.description %></td>
-        <td><%= education.user_id %></td>
-        <td><%= link_to 'Show', education %></td>
-        <td><%= link_to 'Edit', edit_education_path(education) %></td>
-        <td><%= link_to 'Destroy', education, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Education', new_education_path %>
+        <tbody>
+          <% @educations.each do |education| %>
+            <tr>
+              <td><%= link_to  education.title, education_path(education.id) %></td>
+              <td><%= education.end_date %></td>
+              <td><%= education.description %></td>
+              <td><ol>
+                    <% education.technologies.each do |technology| %>
+                      <li><%= technology.name %></li>
+                  <% end %>
+                </ol>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    
+    </div>
+  </div>
+</div>
