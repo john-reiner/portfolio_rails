@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="project-show-container">
+  <div class="show-container">
     <div class="row">
         <div class="heading">
           <h1><%= @project.name %></h1>
           <%= button_to "Edit", edit_project_path, method: :get, class: "btn btn-outline-primary" %>
-          <%= button_to "Delete", @project, method: :destroy, class: "btn btn-outline-danger" %>
+          <%= button_to "Delete", @project, :method => "delete", class: "btn btn-outline-danger", data: { confirm: 'Are you sure?' } %>
         </div>
         <div class="col">
           <%= image_tag(@project.image, class: "img-thumbnail", alt: "project image")%>
@@ -14,6 +14,11 @@
             <h2><%= link_to  "Deployed", @project.address, target: :_blank %></h2>
           <% end %>
             <h2><%= link_to  "GitHub", @project.github, target: :_blank %></h2>
+            <ul>
+              <% @project.technologies.each |technology| %>
+                <li><%= technology.name %></li>
+              <% end %>
+            </ul>
         </div>
         <p></p>
         <h2>Summary: </h2>

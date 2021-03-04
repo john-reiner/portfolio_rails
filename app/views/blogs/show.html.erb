@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @blog.address %>
-</p>
-
-<h2>Technologies</h2>
-
-<% @blog.technologies.each do |technology| %>
-  <p><%= link_to  technology.name, technology_path(technology) %></p>
-<% end %>
-<br><br>
-
-<hr> <br><br>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', @current_user %>
-<%= link_to 'Destroy', @blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="container">
+  <div class="show-container">
+    <div class="row">
+        <div class="heading">
+          <h1><%= link_to  @blog.title, @blog.address, target: :_blank %></h1>
+          <%= button_to "Edit", edit_blog_path, method: :get, class: "btn btn-outline-primary" %>
+          <%= button_to "Delete", @blog, :method => "delete", class: "btn btn-outline-danger", data: { confirm: 'Are you sure?' } %>
+        </div>
+        <div class="col">
+          <%= image_tag(@blog.image, class: "img-thumbnail", alt: "project image")%>
+        </div>
+        <div class="col">
+          <h2>Technologies</h2>
+          <ul>
+            <% @blog.technologies.each do |technology| %>
+              <li><%= technology.name %></li>
+            <% end %>
+          </ul>
+        </div>
+        <p></p>
+        <h2>Summary: </h2>
+        <p><%= @blog.summary %></p>
+    </div>
+  </div>
+</div>

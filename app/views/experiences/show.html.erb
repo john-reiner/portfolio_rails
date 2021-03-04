@@ -1,31 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @experience.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @experience.end_date %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @experience.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @experience.description %>
-</p>
-
-<h2>Technologies</h2>
-
-<% @experience.technologies.each do |technology| %>
-  <p><%= link_to  technology.name, technology_path(technology) %></p>
-<% end %>
-<br><br>
-
-<%= link_to 'Edit', edit_experience_path(@experience) %> |
-<%= link_to 'Back', @current_user %>
+<div class="container">
+    <div class="show-container">
+      <div class="row">
+        <div class="heading">
+          <h2><%= @experience.title %></h2>
+          <%= button_to "Edit", edit_experience_path, method: :get, class: "btn btn-outline-primary" %>
+          <%= button_to "Delete", @experience, :method => "delete", class: "btn btn-outline-danger", data: { confirm: 'Are you sure?' } %>
+        </div>
+        <div class="col">
+          <p>Started: <%= @experience.start_date %></p>
+          <p>Ended: <%= @experience.end_date %></p>
+          <p>Technologies:</p>
+          <% @experience.technologies.each do |technology| %>
+            <p><%= technology.name %></p>
+          <% end %>
+        </div>
+        <div class="col">
+          <h4>Description:</h4>
+          <p><%= @experience.description %></p>
+        </div>
+    </div>
+  </div>
+</div>

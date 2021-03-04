@@ -44,7 +44,7 @@ class ExperiencesController < ApplicationController
   def update
 
     params[:technologies][:id].each do |technology_id|
-      if !technology_id.empty?
+      if !technology_id.empty? 
         @experience.experience_technologies.update(:technology_id => technology_id)
       end
     end
