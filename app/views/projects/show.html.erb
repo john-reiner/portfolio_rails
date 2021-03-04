@@ -1,48 +1,23 @@
-<p>
-<p id="notice"><%= notice %></p>
-
-  <strong>Image:</strong>
-  <%= @project.image %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @project.address %>
-</p>
-
-<p>
-  <strong>Github:</strong>
-  <%= @project.github %>
-</p>
-
-<p>
-  <strong>Summary:</strong>
-  <%= @project.summary %>
-</p>
-
-<p>
-  <strong>Created By:</strong>
-  <%= @project.user.first_name + " " + @project.user.last_name%>
-</p>
-
-<% if @project.deployed %>
-  <p>
-    <strong>Deployed</strong>
-  </p>
-<% end %>
-<br><br>
-
-<h2>Technologies</h2>
-
-<% @project.technologies.each do |technology| %>
-  <p><%= link_to  technology.name, technology_path(technology) %></p>
-<% end %>
-<br><br>
-
-<hr> <br><br>
-
-<%= link_to 'Edit', edit_project_path(@project) %>
-<% if @current_user %>
-  <%= link_to 'Back', user_path(@current_user.id) %>
-<% end %>
-
+<div class="container">
+  <div class="project-show-container">
+    <div class="row">
+        <div class="heading">
+          <h1><%= @project.name %></h1>
+          <%= button_to "Edit", edit_project_path, method: :get, class: "btn btn-outline-primary" %>
+          <%= button_to "Delete", @project, method: :destroy, class: "btn btn-outline-danger" %>
+        </div>
+        <div class="col">
+          <%= image_tag(@project.image, class: "img-thumbnail", alt: "project image")%>
+        </div>
+        <div class="col">
+          <% if @project.deployed %>
+            <h2><%= link_to  "Deployed", @project.address, target: :_blank %></h2>
+          <% end %>
+            <h2><%= link_to  "GitHub", @project.github, target: :_blank %></h2>
+        </div>
+        <p></p>
+        <h2>Summary: </h2>
+        <p><%= @project.summary %></p>
+    </div>
+  </div>
+</div>

@@ -21,15 +21,24 @@ $sectionBorderRadius: 4px;
 .new-form {
     // background-color: red;
     width: 100%;
-    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: $dark;
+    color: $white;
+    border-radius: $sectionBorderRadius;
     .form-group {
         display: flex;
         flex-direction: column;
     }
+}
+
+.project-show-container {
+    background-color: $dark;
+    color: $white;
+    padding: $sectionPadding;
+    border-radius: $sectionBorderRadius;
 }
 
 
