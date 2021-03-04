@@ -11,29 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :image %>
     <%= form.text_field :image %>
   </div>
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :address %>
     <%= form.text_field :address %>
   </div>
 
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :summary %>
     <%= form.text_area :summary %>
   </div>
 
 <%= fields_for(@blog_technologies) do |blog_technology| %>
-    <div class="field">
+    <div class="form-group mb-3">
       <%= blog_technology.label "Technologies" %>
       <%= collection_select(:technologies, :id, Technology.all, :id, :name, {}, {:multiple =>  true}) %>
     </div>

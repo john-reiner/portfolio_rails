@@ -1,6 +1,11 @@
-<h1>Editing Education</h1>
-
-<%= render 'form', education: @education %>
-
-<%= link_to 'Back', @education %> 
-
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="new-form">
+                <h1>Edit Education</h1>
+                <%= render 'form', education: @education %>
+                <%= link_to 'Back', user_path(@current_user.id) %>
+            </div>
+        </div>
+    </div>
+</div>

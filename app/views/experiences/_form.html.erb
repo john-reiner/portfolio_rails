@@ -11,28 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :start_date %>
     <%= form.text_field :start_date %>
   </div>
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :end_date %>
     <%= form.text_field :end_date %>
   </div>
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="form-group mb-3">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
   <%= fields_for(@experience_technologies) do |experience_technology| %>
-    <div class="field">
+    <div class="form-group mb-3">
       <%= experience_technology.label "Technologies" %>
       <%= collection_select(:technologies, :id, Technology.all, :id, :name, {}, {:multiple =>  true}) %>
     </div>
