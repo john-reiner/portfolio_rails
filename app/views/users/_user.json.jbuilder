@@ -38,7 +38,7 @@ json.educations(user.educations) do |education|
     json.id education.id
     json.end_date education.end_date
     json.title education.title
-    json.description edcuation.description
+    json.description education.description
 end
 
 json.experiences(user.experiences) do |experience|
@@ -46,7 +46,7 @@ json.experiences(user.experiences) do |experience|
     json.start_date experience.start_date
     json.end_date experience.end_date
     json.title experience.title
-    json.description edcuation.description
+    json.description experience.description
 end
 
 json.url user_url(user, format: :json)

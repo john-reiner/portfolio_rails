@@ -43,9 +43,16 @@ class ExperiencesController < ApplicationController
   # PATCH/PUT /experiences/1 or /experiences/1.json
   def update
 
-    params[:technologies][:id].each do |technology_id|
-      if !technology_id.empty? 
-        @experience.experience_technologies.update(:technology_id => technology_id)
+    if params[:technologies][:id].length != 1 
+      # destroy the old record
+      @experience.experience_technologies.each do |tech|
+        tech.destroy
+      end
+      #build the new ones
+      params[:technologies][:id].each do |technology_id|
+        if !technology_id.empty?
+          @experience.experience_technologies.build(:technology_id => technology_id)
+        end
       end
     end
 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :users
   root 'pages#home'
+  get 'projects/sort/:id', to: 'projects#sort'
   get 'sessions/new', to: 'sessions#new', as: 'new_login'
   post 'sessions', to: 'sessions#create', as: 'login'
   delete 'sessions', to: 'sessions#destroy', as: "destroy_session"

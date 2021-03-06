@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(
-    email: "johnnyreiner@gmail.com",
-    password: "apassword",
+    email: "John.a.Reiner@gmail.com",
+    password: "Namtab92",
     first_name: "John",
     last_name: "Reiner",
     image: "https://media-exp1.licdn.com/dms/image/C4D03AQGBtZ9WqHNY2A/profile-displayphoto-shrink_800_800/0/1613566150473?e=1619049600&v=beta&t=kQWCzNsNAf6qC_6wZHz-X-89vc-Fs-ZMBSOLnz1KDJg",
@@ -16,41 +16,124 @@ User.create!(
     location: "Keyport NJ",
 )
 
-# Project.create!(
-#     name: "Wilson",
-#     image: "images/projects/wilson.png",
-#     url: "https://john-reiner.github.io/wilson-2.0",
-#     github: "https://github.com/john-reiner/wilson-2.0",
-#     summary: "d",
-#     deployed: true,
-#     user_id: 1
-# )
+Project.create!(
+    name: "Wilson",
+    image: "https://johnreiner.me/photos/wilson.png",
+    address: "https://john-reiner.github.io/wilson-2.0",
+    github: "https://github.com/john-reiner/wilson-2.0",
+    summary: "Wilson is an application designed to help users create and manage their goals. Each Goal has many tasks and when a user marks all the tasks assigned to that goal off, Wilson recognises that the goal is complete!",
+    deployed: true,
+    user_id: 1
+)
 
-# Project.create!(
-#     name: "React Tetris",
-#     image: "images/projects/react-tetris.png",
-#     url: "https://john-reiner.github.io/deploy_react_tetris/",
-#     github: "https://github.com/john-reiner/deploy_react_tetris",
-#     summary: "Tetris in React is the game Tetris built 100% in React.js. There are no game libraries used to help develop the game, everything is built using React, React Hooks and Styled Components. Users can sign in or create a new account, play the game, and view the leaderboard to see their scores.",
-#     deployed: true,
-#     user_id: 1
-# )
+Project.create!(
+    name: "React Tetris",
+    image: "https://johnreiner.me/photos/tetris.png",
+    address: "https://john-reiner.github.io/wilson-2.0",
+    github: "https://github.com/john-reiner/deploy_react_tetris",
+    summary: "Tetris in React is the game Tetris built 100% in React.js. There are no game libraries used to help develop the game, everything is built using React, React Hooks and Styled Components. Users can sign in or create a new account, play the game, and view the leaderboard to see their scores",
+    deployed: true,
+    user_id: 1
+)
 
-# Project.create!(
-#     name: "Apple Calculator Clone",
-#     image: "images/projects/calculator.png",
-#     url: "http://www.johnreiner.me/calc/",
-#     github: "https://github.com/john-reiner/javascrip_calculator",
-#     summary: "Apple Calculator Clone is my attempt at creating the Apple Calculator all in vanilla JS.",
-#     deployed: true,
-#     user_id: 1
-# )
+Project.create!(
+    name: "Portfolio Admin",
+    image: "https://johnreiner.me/photos/tetris.png",
+    address: "http://localhost:3001/",
+    github: "https://github.com/john-reiner/portfolio_rails",
+    summary: "This is the administration side to my portfolio.",
+    deployed: true,
+    user_id: 1
+)
 
-# Technology.create!(
-#     name: "React",
-#     image: "reactimage.com",
-#     user_id: 1
-# )
+Project.create!(
+    name: "Portfolio Admin",
+    image: "https://johnreiner.me/photos/tetris.png",
+    address: "http://localhost:3001/",
+    github: "https://github.com/john-reiner/portfolio_rails",
+    summary: "This is the administration side to my portfolio.",
+    deployed: true,
+    user_id: 1
+)
+
+Project.create!(
+    name: "Portfolio Admin",
+    image: "https://johnreiner.me/photos/tetris.png",
+    address: "http://localhost:3001/",
+    github: "https://github.com/john-reiner/portfolio_rails",
+    summary: "This is the administration side to my portfolio.",
+    deployed: true,
+    user_id: 1
+)
+
+Project.create!(
+    name: "Portfolio Admin",
+    image: "https://johnreiner.me/photos/tetris.png",
+    address: "http://localhost:3001/",
+    github: "https://github.com/john-reiner/portfolio_rails",
+    summary: "This is the administration side to my portfolio.",
+    deployed: true,
+    user_id: 1
+)
+
+Technology.create!(
+    name: "Rails",
+    image: "https://cdn3.iconfinder.com/data/icons/popular-services-brands-vol-2/512/ruby-on-rails-512.png",
+    user_id: 1
+)
+
+Technology.create!(
+    name: "React JS",
+    image: "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
+    user_id: 1
+)
+
+Technology.create!(
+    name: "Postgresql",
+    image: "https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/postgresql-512.png",
+    user_id: 1
+)
+
+Technology.create!(
+    name: "JavaScript",
+    image: "https://cdn2.iconfinder.com/data/icons/designer-skills/128/code-programming-javascript-software-develop-command-language-512.png",
+    user_id: 1
+)
+
+Technology.create!(
+    name: "Ruby",
+    image: "https://cdn1.iconfinder.com/data/icons/cash-coin-essentials-colored/48/JD-01-512.png",
+    user_id: 1
+)
+
+Technology.create!(
+    name: "Python",
+    image: "https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png",
+    user_id: 1
+)
+
+Link.create!(
+    name: "GitHub",
+    address: "https://github.com/john-reiner",
+    image: "https://cdn3.iconfinder.com/data/icons/colorful-guache-social-media-logos-1/159/social-media_GitHub-512.png",
+    user_id: 1
+)
+
+Link.create!(
+    name: "Linkedin",
+    address: "https://www.linkedin.com/in/john-reiner/",
+    image: "https://cdn1.iconfinder.com/data/icons/pen-sketch-icons-set/256/social_media_icons_pen_sketch_icons_set_256x256_0010_linkedin.png",
+    user_id: 1
+)
+
+Link.create!(
+    name: "Linkedin",
+    address: "https://www.hackerrank.com/JohnReiner",
+    image: "https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/160_Hackerrank-512.png",
+    user_id: 1
+)
+
+
 
 # 10.times do |p| 
 #     Project.create!(

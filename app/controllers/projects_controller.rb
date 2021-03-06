@@ -1,13 +1,19 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
-  skip_before_action :logged_in, only: [:show]
+  skip_before_action :logged_in, only: [:show, :sort]
   # GET /projects or /projects.json
   def index
     @projects = @current_user.projects
   end
 
+  def sort
+    technology = Technology.find(params[:id])
+    render json: technology.projects, :include => :technologies
+  end 
+
   # GET /projects/1 or /projects/1.json
   def show
+
   end
 
   # GET /projects/new

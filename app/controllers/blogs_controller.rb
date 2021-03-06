@@ -45,11 +45,19 @@ class BlogsController < ApplicationController
   # PATCH/PUT /blogs/1 or /blogs/1.json
   def update
 
-    params[:technologies][:id].each do |technology_id|
-      if !technology_id.empty?
-        @blog.blog_technologies.update(:technology_id => technology_id)
+    if params[:technologies][:id].length != 1 
+      # destroy the old record
+      @blog.blog_technologies.each do |tech|
+        tech.destroy
+      end
+      #build the new ones
+      params[:technologies][:id].each do |technology_id|
+        if !technology_id.empty?
+          @blog.blog_technologies.build(:technology_id => technology_id)
+        end
       end
     end
+
 
     respond_to do |format|
       if @blog.update(blog_params)
