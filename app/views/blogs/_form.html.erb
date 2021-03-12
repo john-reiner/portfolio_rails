@@ -32,6 +32,11 @@
     <%= form.text_area :summary %>
   </div>
 
+  <div class="form-group mb-3">
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </div>
+
 <%= fields_for(@blog_technologies) do |blog_technology| %>
     <div class="form-group mb-3">
       <%= blog_technology.label "Technologies" %>

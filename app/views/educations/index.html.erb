@@ -13,6 +13,7 @@
             <th scope="col">End Date</th>
             <th scope="col">Description</th>
             <th scope="col">Technologies</th>
+            <th scope="col">Address</th>
           </tr>
         </thead>
 
@@ -28,6 +29,7 @@
                   <% end %>
                 </ol>
               </td>
+              <td><%= link_to  "Address", education.address %></td>
             </tr>
           <% end %>
         </tbody>

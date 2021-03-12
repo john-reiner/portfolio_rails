@@ -1,4 +1,4 @@
-json.extract! user, :id, :email, :first_name, :last_name, :image, :bio, :location, :created_at, :updated_at
+json.extract! user, :id, :email, :first_name, :last_name, :title, :image, :bio, :location, :created_at, :updated_at
 
 json.links(user.links) do |link|
     json.id link.id
@@ -32,6 +32,14 @@ json.blogs(user.blogs) do |blog|
     json.id blog.id
     json.title blog.title
     json.address blog.address
+    json.image blog.image
+    json.summary blog.summary
+    json.date blog.date
+    json.technologies(blog.technologies) do |technology|
+        json.id technology.id
+        json.name technology.name
+        json.image technology.image
+    end
 end
 
 json.educations(user.educations) do |education|
@@ -39,6 +47,12 @@ json.educations(user.educations) do |education|
     json.end_date education.end_date
     json.title education.title
     json.description education.description
+    json.address education.address
+    json.technologies(education.technologies) do |technology|
+        json.id technology.id
+        json.name technology.name
+        json.image technology.image
+    end
 end
 
 json.experiences(user.experiences) do |experience|

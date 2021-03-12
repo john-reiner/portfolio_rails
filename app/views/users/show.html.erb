@@ -5,6 +5,7 @@
     <div class="col-6" >
       <div class="heading">
         <h2><%= @user.first_name + " " + @user.last_name %></h2>
+        <h4>Title: <%= @user.title %></h4>
         <%= button_to "Edit", edit_user_path(@user), method: :get, class: "btn btn-outline-primary" %>
       </div>
         <%= image_tag(@user.image, class: "img-thumbnail", id: "user-image", alt: "user image")%>

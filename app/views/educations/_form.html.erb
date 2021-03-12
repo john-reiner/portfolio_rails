@@ -26,6 +26,11 @@
     <%= form.text_field :description %>
   </div>
 
+  <div class="form-group mb-3">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
   <%= fields_for(@education_technologies) do |education_technology| %>
     <div class="form-group mb-3">
       <%= education_technology.label "Technologies" %>

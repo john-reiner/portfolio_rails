@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
-
+  skip_before_action :logged_in, only: [:sort]
   # GET /blogs or /blogs.json
   def index
     @blogs = @current_user.blogs
@@ -9,6 +9,11 @@ class BlogsController < ApplicationController
   # GET /blogs/1 or /blogs/1.json
   def show
   end
+
+  def sort
+    technology = Technology.find(params[:id])
+    render json: technology.blogs, :include => :technologies
+  end 
 
   # GET /blogs/new
   def new
@@ -88,6 +93,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :address, :image, :summary)
+      params.require(:blog).permit(:title, :address, :image, :summary, :date)
     end
 end
