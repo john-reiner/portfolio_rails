@@ -1,4 +1,4 @@
-json.extract! user, :id, :email, :first_name, :last_name, :title, :image, :bio, :location, :created_at, :updated_at
+json.extract! user, :id, :email, :first_name, :last_name, :title, :image, :tech_bio, :bio, :location, :created_at, :updated_at
 
 json.links(user.links) do |link|
     json.id link.id
