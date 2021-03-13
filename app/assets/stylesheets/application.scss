@@ -88,6 +88,14 @@ body {
     }
 }
 
+#tech-row {
+    background-color: $dark;
+    color: $white;
+    padding: $sectionPadding;
+    border-radius: $sectionBorderRadius;
+    margin-top: 1rem;
+}
+
 
 
 #info {
@@ -115,7 +123,6 @@ body {
 }
 
 #links {
-    border-left: solid $white 3px;
     ul {
         list-style-type: none;
         padding-top: 1rem;

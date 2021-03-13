@@ -2,85 +2,107 @@
   <h1>My Dashboard</h1>
   <hr>
   <div class="row" id="my-info">
-    <div class="col-6" >
-      <div class="heading">
-        <h2><%= @user.first_name + " " + @user.last_name %></h2>
-        <h4>Title: <%= @user.title %></h4>
-        <%= button_to "Edit", edit_user_path(@user), method: :get, class: "btn btn-outline-primary" %>
-      </div>
+    <div class="heading">
+      <h2><%= @user.first_name + " " + @user.last_name %></h2>
+      <%= button_to "Edit", edit_user_path(@user), method: :get, class: "btn btn-outline-primary" %>
+    </div>
+    <hr>
+    <div class="col-2">
         <%= image_tag(@user.image, class: "img-thumbnail", id: "user-image", alt: "user image")%>
-      <p>
-        <strong>Email:</strong>
-        <%= @user.email %>
-      </p>
-      <p>
-        <strong>Bio:</strong>
-        <%= @user.bio %>
-      </p>
-
-      <p>
-        <strong>Tech Bio:</strong>
-        <%= @user.tech_bio %>
-      </p>
-      <p>
-        <strong>Location:</strong>
-        <%= @user.location %>
-      </p>
-    </div>  
-
-
-    <div class="col-3" id="links">
-      <div class="heading">
-        <h2>Links</h2>
-        <%= button_to "Add", new_link_path, method: :get, class: "btn btn-outline-primary" %>
-      </div>
-      <table class="table align-middle table-hover table-sm">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Image</th>
-            <th scope="col">Edit/Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @user.links.each do |link| %>
-            <tr>
-              <td><%= link_to  link.name, link.address, target: :_blank %></td>
-              <td><%= image_tag(link.image, class: "link-image", alt: "link image")%></td>
-              <td><%= link_to 'Edit', edit_link_path(link) %> | <%= link_to 'Remove', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
     </div>
 
-
-    <div class="col-3" id="technologies">
-      <div class="heading">
-        <h2>Technologies</h2>
-        <%= button_to "Add", new_technology_path, method: :get, class: "btn btn-outline-primary" %>
-      </div>
-      <table class="table align-middle table-hover table-sm">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Image</th>
-            <th scope="col">Edit/Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @user.technologies.each do |technology| %>
-            <tr>
-              <td><%= link_to  technology.name, technology_path%></td>
-              <td><%= image_tag(technology.image, class: "link-image", alt: "link image")%></td>
-              <td><%= link_to 'Edit', edit_technology_path(technology) %> | <%= link_to 'Remove', technology, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="col-4">
+      <h4>Title: <%= @user.title %></h4>
+      <h4>Email: <%= @user.email %></h4>
+      <h4>Location: <%= @user.location %></h4>
     </div>
 
+    <div class="col-6">
+      <p><strong>Bio: </strong><%= @user.bio %></p>
+      <p><strong>Tech Bio: </strong><%= @user.tech_bio %></p>
+    </div>
   </div>
+
+  <div class="row" id="tech-row">
+      <div class="col" id="links">
+        <div class="heading">
+          <h2>Links</h2>
+          <%= button_to "Add", new_link_path, method: :get, class: "btn btn-outline-primary" %>
+        </div>
+        <table class="table align-middle table-hover table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Image</th>
+              <th scope="col">Edit/Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user.links.each do |link| %>
+              <tr>
+                <td><%= link_to  link.name, link.address, target: :_blank %></td>
+                <td><%= image_tag(link.image, class: "link-image", alt: "link image")%></td>
+                <td><%= link_to 'Edit', edit_link_path(link) %> | <%= link_to 'Remove', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col" id="technologies">
+        <div class="heading">
+          <h2>Technologies</h2>
+          <%= button_to "Add", new_technology_path, method: :get, class: "btn btn-outline-primary" %>
+        </div>
+        <table class="table align-middle table-hover table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Image</th>
+              <th scope="col">Edit/Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user.technologies.each do |technology| %>
+              <tr>
+                <td><%= link_to  technology.name, technology_path%></td>
+                <td><%= image_tag(technology.image, class: "link-image", alt: "link image")%></td>
+                <td><%= link_to 'Edit', edit_technology_path(technology) %> | <%= link_to 'Remove', technology, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col" id="technologies">
+        <div class="heading">
+          <h2>Skills</h2>
+          <%= button_to "Add", new_skill_path, method: :get, class: "btn btn-outline-primary" %>
+        </div>
+        <table class="table align-middle table-hover table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Image</th>
+              <th scope="col">Edit/Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user.skills.each do |skill| %>
+              <tr>
+                <td><%= link_to  skill.name, skill_path%></td>
+                <td><%= image_tag(skill.image, class: "link-image", alt: "link image")%></td>
+                <td><%= link_to 'Edit', edit_skill_path(skill) %> | <%= link_to 'Remove', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  
+  </div>
+
   <br>
   <h2>Portfolio Info</h2>
   <hr>
