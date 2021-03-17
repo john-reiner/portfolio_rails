@@ -28,6 +28,12 @@ json.technologies(user.technologies) do |technology|
     json.image technology.image
 end
 
+json.skills(user.skills) do |skill|
+    json.id skill.id
+    json.name skill.name
+    json.image skill.image
+end
+
 json.blogs(user.blogs) do |blog|
     json.id blog.id
     json.title blog.title

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_13_123229) do
+ActiveRecord::Schema.define(version: 2021_03_17_131427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2021_03_13_123229) do
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
+  create_table "education_skills", force: :cascade do |t|
+    t.bigint "education_id", null: false
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["education_id"], name: "index_education_skills_on_education_id"
+    t.index ["skill_id"], name: "index_education_skills_on_skill_id"
+  end
+
   create_table "education_technologies", force: :cascade do |t|
     t.bigint "education_id", null: false
     t.bigint "technology_id", null: false
@@ -54,6 +63,15 @@ ActiveRecord::Schema.define(version: 2021_03_13_123229) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "address"
     t.index ["user_id"], name: "index_educations_on_user_id"
+  end
+
+  create_table "experience_skills", force: :cascade do |t|
+    t.bigint "experience_id", null: false
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["experience_id"], name: "index_experience_skills_on_experience_id"
+    t.index ["skill_id"], name: "index_experience_skills_on_skill_id"
   end
 
   create_table "experience_technologies", force: :cascade do |t|
@@ -143,9 +161,13 @@ ActiveRecord::Schema.define(version: 2021_03_13_123229) do
   add_foreign_key "blog_technologies", "blogs"
   add_foreign_key "blog_technologies", "technologies"
   add_foreign_key "blogs", "users"
+  add_foreign_key "education_skills", "educations"
+  add_foreign_key "education_skills", "skills"
   add_foreign_key "education_technologies", "educations"
   add_foreign_key "education_technologies", "technologies"
   add_foreign_key "educations", "users"
+  add_foreign_key "experience_skills", "experiences"
+  add_foreign_key "experience_skills", "skills"
   add_foreign_key "experience_technologies", "experiences"
   add_foreign_key "experience_technologies", "technologies"
   add_foreign_key "experiences", "users"
