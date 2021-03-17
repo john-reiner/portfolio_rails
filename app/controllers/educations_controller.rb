@@ -29,6 +29,12 @@ class EducationsController < ApplicationController
         @education.education_technologies.build(:technology_id => technology_id)
       end
     end
+
+    params[:skills][:id].each do |skill_id|
+      if !skill_id.empty?
+        @education.education_skills.build(:skill_id => skill_id)
+      end 
+    end 
     respond_to do |format|
       if @education.save
         format.html { redirect_to @education, notice: "Education was successfully created." }
@@ -56,6 +62,19 @@ class EducationsController < ApplicationController
       end
     end
 
+    if params[:skills][:id].length != 1 
+      # destroy the old record
+      @education.education_skills.each do |skill|
+        skill.destroy
+      end
+      #build the new ones
+      params[:skills][:id].each do |skill_id|
+        if !technology_id.empty?
+          @education.education_skills.build(:skill_id => skill_id)
+        end
+      end
+    end
+
     respond_to do |format|
       if @education.update(education_params)
         format.html { redirect_to @education, notice: "Education was successfully updated." }
@@ -70,6 +89,7 @@ class EducationsController < ApplicationController
   # DELETE /educations/1 or /educations/1.json
   def destroy
     @education.technologies.destroy_all
+    @education.skills.destroy_all
     @education.destroy
     respond_to do |format|
       format.html { redirect_to @current_user, notice: "Education was successfully destroyed." }

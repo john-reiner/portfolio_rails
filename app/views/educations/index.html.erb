@@ -13,6 +13,7 @@
             <th scope="col">End Date</th>
             <th scope="col">Description</th>
             <th scope="col">Technologies</th>
+            <th scope="col">Skills</th>
             <th scope="col">Address</th>
           </tr>
         </thead>
@@ -26,6 +27,12 @@
               <td><ol>
                     <% education.technologies.each do |technology| %>
                       <li><%= technology.name %></li>
+                  <% end %>
+                </ol>
+              </td>
+              <td><ol>
+                    <% education.skills.each do |skill| %>
+                      <li><%= skill.name %></li>
                   <% end %>
                 </ol>
               </td>
