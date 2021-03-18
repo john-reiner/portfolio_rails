@@ -38,6 +38,13 @@
     </div>
   <% end %>
 
+    <%= fields_for(@skill_technologies) do |skill_technology| %>
+    <div class="form-group mb-3">
+      <%= skill_technology.label "Skills" %>
+      <%= collection_select(:skills, :id, Skill.all, :id, :name, {}, {:multiple =>  true}) %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

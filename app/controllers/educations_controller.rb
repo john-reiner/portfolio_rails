@@ -23,6 +23,12 @@ class EducationsController < ApplicationController
   def create
     @education = Education.new(education_params)
     @education.user_id = @current_user.id
+    
+    params[:skills][:id].each do |skill_id|
+      if !skill_id.empty?
+        @education.education_skills.build(:skill_id => skill_id)
+      end 
+    end 
 
     params[:technologies][:id].each do |technology_id|
       if !technology_id.empty?
@@ -30,11 +36,7 @@ class EducationsController < ApplicationController
       end
     end
 
-    params[:skills][:id].each do |skill_id|
-      if !skill_id.empty?
-        @education.education_skills.build(:skill_id => skill_id)
-      end 
-    end 
+
     respond_to do |format|
       if @education.save
         format.html { redirect_to @education, notice: "Education was successfully created." }
@@ -68,6 +70,7 @@ class EducationsController < ApplicationController
         skill.destroy
       end
       #build the new ones
+
       params[:skills][:id].each do |skill_id|
         if !technology_id.empty?
           @education.education_skills.build(:skill_id => skill_id)
