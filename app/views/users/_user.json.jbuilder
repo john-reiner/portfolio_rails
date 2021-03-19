@@ -59,6 +59,11 @@ json.educations(user.educations) do |education|
         json.name technology.name
         json.image technology.image
     end
+    json.skills(education.skills) do |skill|
+        json.id skill.id
+        json.name skill.name
+        json.image skill.image
+    end
 end
 
 json.experiences(user.experiences) do |experience|

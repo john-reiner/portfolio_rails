@@ -29,6 +29,13 @@ class ExperiencesController < ApplicationController
         @experience.experience_technologies.build(:technology_id => technology_id)
       end
     end
+
+    params[:skills][:id].each do |skill_id|
+      if !skill_id.empty?
+        @experience.experience_skill.build(:skill_id => skill_id)
+      end
+    end
+
     respond_to do |format|
       if @experience.save
         format.html { redirect_to @experience, notice: "Experience was successfully created." }
@@ -56,6 +63,19 @@ class ExperiencesController < ApplicationController
       end
     end
 
+    if params[:skills][:id].length != 1 
+      # destroy the old record
+      @experience.experience_skills.each do |skill|
+        skill.destroy
+      end
+      #build the new ones
+      params[:skills][:id].each do |skill_id|
+        if !skill_id.empty?
+          @experience.experience_skills.build(:skill_id => skill_id)
+        end
+      end
+    end
+
     respond_to do |format|
       if @experience.update(experience_params)
         format.html { redirect_to @experience, notice: "Experience was successfully updated." }
@@ -70,6 +90,7 @@ class ExperiencesController < ApplicationController
   # DELETE /experiences/1 or /experiences/1.json
   def destroy
     @experience.technologies.destroy_all
+    @experience.skills.destroy_all
     @experience.destroy
     respond_to do |format|
       format.html { redirect_to @current_user, notice: "Experience was successfully destroyed." }

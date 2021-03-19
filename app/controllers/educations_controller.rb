@@ -72,7 +72,7 @@ class EducationsController < ApplicationController
       #build the new ones
 
       params[:skills][:id].each do |skill_id|
-        if !technology_id.empty?
+        if !skill_id.empty?
           @education.education_skills.build(:skill_id => skill_id)
         end
       end
