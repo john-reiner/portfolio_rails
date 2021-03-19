@@ -32,7 +32,7 @@ class ExperiencesController < ApplicationController
 
     params[:skills][:id].each do |skill_id|
       if !skill_id.empty?
-        @experience.experience_skill.build(:skill_id => skill_id)
+        @experience.experience_skills.build(:skill_id => skill_id)
       end
     end
 
