@@ -2,8 +2,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   skip_before_action :logged_in, only: [:new, :create, :show]
 
+
   # GET /users/1 or /users/1.json
   def show
+    @technologies = @user.technologies.order(name: :asc)
   end
 
   # GET /users/new

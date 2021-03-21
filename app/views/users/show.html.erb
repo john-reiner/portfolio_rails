@@ -1,6 +1,4 @@
 <div class="container">
-  <h1>My Dashboard</h1>
-  <hr>
   <div class="row" id="my-info">
     <div class="heading">
       <h2><%= @user.first_name + " " + @user.last_name %></h2>
@@ -63,7 +61,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @user.technologies.each do |technology| %>
+            <% @technologies.each do |technology| %>
               <tr>
                 <td><%= link_to  technology.name, technology_path%></td>
                 <td><%= image_tag(technology.image, class: "link-image", alt: "link image")%></td>

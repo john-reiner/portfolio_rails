@@ -22,7 +22,7 @@ json.projects(user.projects) do |project|
     end
 end
 
-json.technologies(user.technologies) do |technology|
+json.technologies(@technologies) do |technology|
     json.id technology.id
     json.name technology.name
     json.image technology.image
@@ -72,6 +72,16 @@ json.experiences(user.experiences) do |experience|
     json.end_date experience.end_date
     json.title experience.title
     json.description experience.description
+    json.technologies(experience.technologies) do |technology|
+        json.id technology.id
+        json.name technology.name
+        json.image technology.image
+    end
+    json.skills(experience.skills) do |skill|
+        json.id skill.id
+        json.name skill.name
+        json.image skill.image
+    end
 end
 
 json.url user_url(user, format: :json)
